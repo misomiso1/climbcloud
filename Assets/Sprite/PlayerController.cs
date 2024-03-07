@@ -5,14 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rigid2D;
+    Animator animator;
     public float jumpForce = 680.0f;
     float walkForce = 30.0f;
     float maxWalkSpeed = 2.0f;
     // Start is called before the first frame update
+
     void Start()
     {
         Application.targetFrameRate=60;
         this.rigid2D=GetComponent<Rigidbody2D>();
+        this.animator=GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,6 +36,7 @@ public class PlayerController : MonoBehaviour
         if(key !=0){
             transform.localScale=new Vector3(key,1,1);
         }
+        this.animator.speed=speedx/2.0f;
         
     }
 
